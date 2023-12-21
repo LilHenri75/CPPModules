@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:27:18 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/21 10:57:40 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:33:42 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,11 @@ class Contact {
 		void setPhoneNumber(std::string str);
 		void setDarkestSecret(std::string str);
 
-		const std::string&	getFirstName(void) const;
-		const std::string&	getLastName(void) const;
-		const std::string&	getNickname(void) const;
-		const std::string&	getPhoneNumber(void) const;
-		const std::string&	getDarkestSecret(void) const;
+		const std::string	getFirstName(void) const;
+		const std::string	getLastName(void) const;
+		const std::string	getNickname(void) const;
+		const std::string	getPhoneNumber(void) const;
+		const std::string	getDarkestSecret(void) const;
 };
 
 #endif

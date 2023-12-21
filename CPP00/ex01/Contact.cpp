@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:27:15 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/21 11:02:00 by hebernar         ###   ########.fr       */
+/*   Updated: 2023/12/21 13:33:32 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,22 +40,22 @@ void Contact::setDarkestSecret(std::string str) {
 	this->darkestSecret = str;
 }
 
-const std::string& Contact::getFirstName(void) const {
+const std::string Contact::getFirstName(void) const {
 	return this->firstName;
 }
 
-const std::string& Contact::getLastName(void) const {
+const std::string Contact::getLastName(void) const {
 	return this->lastName;
 }
 
-const std::string& Contact::getNickname(void) const {
+const std::string Contact::getNickname(void) const {
 	return this->nickname;
 }
 
-const std::string& Contact::getPhoneNumber(void) const {
+const std::string Contact::getPhoneNumber(void) const {
 	return this->phoneNumber;
 }
 
-const std::string& Contact::getDarkestSecret(void) const {
+const std::string Contact::getDarkestSecret(void) const {
 	return this->darkestSecret;
 }
