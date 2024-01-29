@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:25:54 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/21 13:04:57 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/01/29 11:53:44 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,10 @@ static inline bool isInputValid(const std::string& input)
 
 void helloMsg(void)
 {
-	std::cout << "*-------------------------------------------*\n"
-			"|                                           |\n"
-			"|          ADD - Add a new contact          |\n"
-			"|          SEARCH - Display a contact       |\n"
-			"|          EXIT - Exit PhoneBook            |\n"
-			"|                                           |\n"
-			"*-------------------------------------------*" << std::endl;
+	std::cout << std::endl <<
+			"          ADD - Add a new contact\n"
+			"          SEARCH - Display a contact\n"
+			"          EXIT - Exit PhoneBook\n" << std::endl;
 }
 
 std::string getInput(void)
@@ -45,8 +42,9 @@ std::string getInput(void)
 		if (!input.empty() && isInputValid(input))
 			break;
 		std::cin.clear();
-		std::cout << "[1] Please insert a valid input" << std::endl;
+		std::cout << "[1] Please insert a valid input\n" << std::endl;
 	}
+	std::cout << std::endl;
 	return input;
 }
 

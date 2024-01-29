@@ -1,5 +1,5 @@
-NAME = Unnecessary_Violence
-SRCS = main.cpp HumanA.cpp HumanB.cpp Weapon.cpp
+NAME = sed_for_loosers
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./*.hpp

@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:59:42 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/22 12:31:15 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:26:06 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,12 @@ Zombie::Zombie(std::string name) {
 
 // Destructor
 Zombie::~Zombie(void) {
-	std::cout << this->name << " is dead." << std::endl;
+	std::cout << name << " is dead." << std::endl;
 	return;
 }
 
 // Member functions
 void Zombie::announce(void) {
-	std::cout << this->name << ": BraiiiiiiinnnzzzZ..." << std::endl;
+	std::cout << name << ": BraiiiiiiinnnzzzZ..." << std::endl;
 	return;
 }

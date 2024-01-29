@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:37:24 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/23 14:20:11 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/01/29 12:32:27 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ Zombie::~Zombie(void) {
 	return;
 }
 
+// Getters
 void Zombie::setZombie(std::string name) {
 	this->name = name;
 	return;
