@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 12:17:49 by hebernar          #+#    #+#             */
-/*   Updated: 2024/01/29 14:17:33 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/05 15:41:47 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 Weapon::Weapon (std::string type)
 {
 	this->type = type;
-	return;
 }
 
 // Destructor

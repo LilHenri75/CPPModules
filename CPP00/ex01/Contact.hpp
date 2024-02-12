@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:27:18 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/21 13:33:42 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/12 13:33:11 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,20 @@ class Contact {
 		std::string	darkestSecret;
 
 	public:
-		Contact(void);
-		~Contact(void);
-
+		Contact(void); // Constructor
+		~Contact(void); // Destructor
+		// Setters
 		void setFirstName(std::string str);
 		void setLastName(std::string str);
 		void setNickName(std::string str);
 		void setPhoneNumber(std::string str);
 		void setDarkestSecret(std::string str);
-
-		const std::string	getFirstName(void) const;
-		const std::string	getLastName(void) const;
-		const std::string	getNickname(void) const;
-		const std::string	getPhoneNumber(void) const;
-		const std::string	getDarkestSecret(void) const;
+		// Getters
+		std::string	getFirstName(void) const;
+		std::string	getLastName(void) const;
+		std::string	getNickname(void) const;
+		std::string	getPhoneNumber(void) const;
+		std::string	getDarkestSecret(void) const;
 };
 
 #endif

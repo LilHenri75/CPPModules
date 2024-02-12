@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:25:54 by hebernar          #+#    #+#             */
-/*   Updated: 2024/01/29 11:53:44 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/12 11:27:51 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int main(void)
 			pb.addContact();
 		else if (input == "SEARCH")
 			pb.searchContact();
-		else
+		else if (input == "EXIT")
 		{
 			std::cout << "[0] Exiting the phonebook" << std::endl;
 			return EXIT_SUCCESS;

@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:27:21 by hebernar          #+#    #+#             */
-/*   Updated: 2024/01/29 12:16:56 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/12 15:03:23 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void PhoneBook::addContact(void)
 	Contact	new_contact;
 	std::string	input;
 
-	while (1)
+	while (1) // Ask the user for his First name
 	{
 		std::cout << "First name: ";
 		getline(std::cin, input);
@@ -58,7 +58,7 @@ void PhoneBook::addContact(void)
 	}
 	new_contact.setFirstName(input);
 
-	while (1)
+	while (1) // Ask the user for his Last name
 	{
 		std::cout << "Last name: ";
 		getline(std::cin, input);
@@ -69,7 +69,7 @@ void PhoneBook::addContact(void)
 	}
 	new_contact.setLastName(input);
 
-	while (1)
+	while (1) // Ask the user for his Nicktame
 	{
 		std::cout << "Nickname: ";
 		getline(std::cin, input);
@@ -80,7 +80,7 @@ void PhoneBook::addContact(void)
 	}
 	new_contact.setNickName(input);
 
-	while (1)
+	while (1) // Ask the user for his Phone number
 	{
 		std::cout << "Phone number: ";
 		getline(std::cin, input);
@@ -94,7 +94,7 @@ void PhoneBook::addContact(void)
 	}
 	new_contact.setPhoneNumber(input);
 
-	while (1)
+	while (1) // Ask the user his Darkest secret
 	{
 		std::cout << "Darkest secret: ";
 		getline(std::cin, input);
@@ -104,45 +104,49 @@ void PhoneBook::addContact(void)
 		std::cout << "Darkest secret cannot be empty" << std::endl;
 	}
 	new_contact.setDarkestSecret(input);
-	contacts[count % 8] = new_contact;
-	count += 1;
+	contacts[count % 8] = new_contact; // Put the contact at the right index
+	count += 1; // Increase the count
 	std::cout << "[0] Contact added" << std::endl;
 }
 
 // Function to search a contact
 void PhoneBook::searchContact(void)
 {
-	if (count == 0)
+	if (count == 0) // If no contact print a message
 	{
 		std::cout << "[1] There are no contacts to display!" << std::endl;
-		return ;
+		return;
 	}
-	std::cout << "\n|     Index|First Name| Last Name|  Nickname|" << std::endl;
+
+	// Display the first 8 contacts
+	std::cout << "\n     Index|First Name| Last Name|  Nickname" << std::endl;
 	for (size_t i = 0; i < count && i < 8; i += 1)
 	{
-		std::cout << "|" << std::right << std::setw(10) << i << "|";
+		std::cout << std::right << std::setw(10) << i << "|";
 		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getFirstName()) << "|" ;
 		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getLastName()) << "|";
-		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getNickname()) << "|";
+		std::cout << std::right << std::setw(10) << getFormattedField(contacts[i].getNickname());
 		std::cout << std::endl;
 	}
+
 	std::string index;
 	int conv_index;
 	while (42)
 	{
-		std::cout << "[0] Please insert the index of the contact you'd like to display: ";
+		std::cout << "[0] Please insert the index of the contact you'd like to display: "; // Ask the user for the contact to display
 		getline(std::cin, index);
-		if (!index.empty() && index.find_first_not_of("0123456789") == std::string::npos)
+		if (!index.empty() && index.find_first_not_of("0123456789") == std::string::npos) // Check if empty or not a number
 		{
-			conv_index = atoi(index.c_str());
-			if (conv_index <= 7)
+			conv_index = atoi(index.c_str()); // Convert the index into an int
+			if (conv_index <= 7) // If the number is between 0 and 7 exit the loop
 				break;
 		}
 		std::cin.clear();
 		std::cout << "Invalid input" << std::endl;
 	}
-	if ((size_t)conv_index > (count - 1))
+
+	if ((size_t)conv_index > (count - 1)) // Check if there is a contact at this index
 		std::cout << "There's no contact with that index" << std::endl;
-	else
+	else // If there is, display contact information
 		display_contact_info(this->contacts[conv_index]);
 }
