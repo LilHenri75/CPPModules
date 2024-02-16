@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 12:37:26 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/23 14:21:20 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:20:49 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #define ZOMBIE_HPP
 
 #include <iostream>
+#include <limits>
 
 class Zombie {
 	public:

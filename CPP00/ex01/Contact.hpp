@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/19 15:27:18 by hebernar          #+#    #+#             */
-/*   Updated: 2024/02/12 13:33:11 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/13 13:11:56 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <cstdio>
 
 class Contact {
 	private:

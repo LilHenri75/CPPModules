@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/22 11:58:28 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/22 12:27:28 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/13 12:51:22 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ class Zombie {
 		std::string name;
 };
 
-Zombie* newZombie( std::string name );
+Zombie* newZombie(std::string name);
 
-void randomChump( std::string name );
+void randomChump(std::string name);
 
 #endif
