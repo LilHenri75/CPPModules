@@ -6,16 +6,15 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 12:17:49 by hebernar          #+#    #+#             */
-/*   Updated: 2024/02/05 15:41:47 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:45:42 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Weapon.hpp"
 
 // Constructor assigninig a name to the weapon
-Weapon::Weapon (std::string type)
-{
-	this->type = type;
+Weapon::Weapon (std::string weapon) {
+	this->type = weapon;
 }
 
 // Destructor
@@ -31,8 +30,7 @@ const std::string &Weapon::getType(void) const
 }
 
 // Set the type of the weapon
-void Weapon::setType(std::string type)
-{
-	this->type = type;
+void Weapon::setType(std::string weapon) {
+	this->type = weapon;
 	return;
 }

@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/24 12:17:46 by hebernar          #+#    #+#             */
-/*   Updated: 2023/12/24 12:29:14 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/20 15:45:18 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@
 #include <iostream>
 #include "Weapon.hpp"
 
-class HumanB
-{
+class HumanB {
 	public :
 		HumanB(std::string name);
 		~HumanB(void);

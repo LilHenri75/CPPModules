@@ -1,49 +1,58 @@
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/02/21 00:29:19 by hebernar          #+#    #+#             */
+/*   Updated: 2024/02/21 00:55:02 by hebernar         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int main(int argc, char **argv)
-{
+#include <fstream>
+#include <iostream>
+
+int	replace(char **argv, std::string str) {
+	std::ofstream	outfile;
+	int				pos;
+
+	outfile.open((std::string(argv[1]) + ".replace").c_str()); // Create a new file
+	if (outfile.fail()) // Check if file is open
+		return 1;
+	for (int i = 0; i < (int)str.size(); i++) // Replace the word
+	{
+		pos = str.find(argv[2], i); // Find the position of the word
+		if (pos >= 0 && pos == i) // If the word is found
+		{
+			outfile << argv[3]; // Replace the word
+			i += std::string(argv[2]).size() - 1; // Skip the word
+		}
+		else
+			outfile << str[i]; // If word is not found, copy the character
+	}
+	outfile.close(); // Close file
+	return (0);
+}
+
+int	main(int argc, char **argv) {
+	char			c;
+	std::ifstream	infile;
+	std::string		str;
+
 	if (argc != 4)
 	{
-		std::cout << "Wrong number of arguments" << std::endl;
-		std::cout << "Usage: ./replace <filename> <string to replace> <string to replace with>" << std::endl;
-		return (1);
+		std::cout << "usage: replace <file> old_word new_word" << std::endl;
+		return 1;
 	}
-	else
+	infile.open(argv[1]); // Open file
+	if (infile.fail()) // Check if file is open
 	{
-		// Open the input file (filename) in read mode
-		std::ifstream ifs(argv[1]);
-		if (!ifs)
-		{
-			std::cout << "Error: could not open file" << std::endl;
-			return (1);
-		}
-		// Create the output file (filename + ".replace") in write mode
-		std::ofstream ofs((std::string(argv[1]) + ".replace").c_str());
-		if (!ofs)
-		{
-			std::cout << "Error: could not create file" << std::endl;
-			return (1);
-		}
-		// Read the input file line by line
-		std::string line;
-		while (std::getline(ifs, line))
-		{
-			// Replace all occurences of s1 by s2
-			size_t pos = 0;
-			while ((pos = line.find(argv[2], pos)) != std::string::npos)
-			{
-				line.replace(pos, std::string(argv[2]).length(), argv[3]);
-				pos += std::string(argv[3]).length();
-			}
-			// Write the line to the output file
-			ofs << line << std::endl;
-		}
-		// Close the files
-		ifs.close();
-		ofs.close();
-		return (0);
+		std::cout << "Error: " << argv[1] << ":" << " no such file or directory" << std::endl;
+		return 1;
 	}
+	while(!infile.eof() && infile >> std::noskipws >> c) // Read the content of the file
+		str += c; // Copy the content of the file in a string
+	infile.close(); // Close file
+	return (replace(argv, str)); // Replace the word and write the result in a new file
 }

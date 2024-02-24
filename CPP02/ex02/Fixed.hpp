@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:39:47 by hebernar          #+#    #+#             */
-/*   Updated: 2024/02/06 18:55:59 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/02/23 14:25:28 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,39 +28,47 @@
 
 class Fixed {
 	private:
-		int	fixedPointNumber;
+		int					fixedPointNumber;
 		static const int	fractionalBits = 8;
 	public:
+		// Constructors and destructors
 		Fixed();
 		Fixed(Fixed const & src);
 		Fixed(int const value);
 		Fixed(float const value);
 		~Fixed();
+		// Conversion functions
 		float toFloat( void ) const;
 		int toInt( void ) const;
-		Fixed & operator=(Fixed const & rhs);
+		// Assignment operator
+		Fixed & operator=(Fixed const & src);
+		// Member functions
 		int getRawBits(void) const;
 		void setRawBits(int const raw);
-		bool operator>(Fixed const & rhs) const;
-		bool operator<(Fixed const & rhs) const;
-		bool operator>=(Fixed const & rhs) const;
-		bool operator<=(Fixed const & rhs) const;
-		bool operator!=(Fixed const & rhs) const;
-		bool operator==(Fixed const & rhs) const;
-		Fixed operator+(Fixed const & rhs) const;
-		Fixed operator-(Fixed const & rhs) const;
-		Fixed operator*(Fixed const & rhs) const;
-		Fixed operator/(Fixed const & rhs) const;
+		// Comparison operators
+		bool operator>(Fixed const & src) const;
+		bool operator<(Fixed const & src) const;
+		bool operator>=(Fixed const & src) const;
+		bool operator<=(Fixed const & src) const;
+		bool operator!=(Fixed const & src) const;
+		bool operator==(Fixed const & src) const;
+		// Arithmetic operators
+		Fixed operator+(Fixed const & src) const;
+		Fixed operator-(Fixed const & src) const;
+		Fixed operator*(Fixed const & src) const;
+		Fixed operator/(Fixed const & src) const;
+		// Increment/decrement operators
 		Fixed& operator++(void);
 		Fixed operator++(int);
 		Fixed& operator--(void);
 		Fixed operator--(int);
+		// Member functions
 		static Fixed& min(Fixed &x, Fixed &y);
 		static Fixed const & min(Fixed const &x, Fixed const &y);
 		static Fixed& max(Fixed &x, Fixed &y);
 		static Fixed const & max(Fixed const &x, Fixed const &y);
 };
 
-std::ostream & operator<<(std::ostream & o, Fixed const & rhs);
+std::ostream & operator<<(std::ostream & o, Fixed const & src);
 
 #endif
