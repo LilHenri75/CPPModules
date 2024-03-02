@@ -16,9 +16,7 @@
 
 int main()
 {
-	Animal animals;
-	animals.makeSound();
-/*
+	Animal *animals[10];
 	for (int i = 0; i < 10; i++) {
 		if (i >= 5)
 			animals[i] = new Dog();
@@ -40,5 +38,18 @@ int main()
 	std::cout << std::endl;
 	for (int i = 0; i < 10; i++) {
 		delete animals[i];
-	}*/
+	}
+
+	std::cout << std::endl;
+	std::cout << "Test with deep copy" << std::endl << std::endl;
+	Dog basic;
+	{
+		std::cout << std::endl;
+		Dog tmp = basic;
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "Idea [0] from Dog: " << basic.getBrain()->getIdea(0) << std::endl;
+	std::cout << std::endl;
+	return 0;
 }
