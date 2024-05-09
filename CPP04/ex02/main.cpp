@@ -6,7 +6,7 @@
 /*   By: hebernar <hebernar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/03/01 10:42:10 by hebernar          #+#    #+#             */
-/*   Updated: 2024/03/02 11:08:23 by hebernar         ###   ########.fr       */
+/*   Updated: 2024/03/02 11:07:06 by hebernar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,13 @@
 
 int main()
 {
-	AAnimal* animals[10];
-
-	for (int i = 0; i < 10; i++)
-	{
+	AAnimal *animals[10];
+	for (int i = 0; i < 10; i++) {
 		if (i >= 5)
 			animals[i] = new Dog();
 		else
 			animals[i] = new Cat();
 	}
-	std::cout << std::endl;
 	for (int i = 0; i < 100; i++) {
 		std::cout << "Idea [" << i << "] from Cat[0]: " << ((Cat *)animals[0])->getBrain()->getIdea(i) << std::endl;
 		std::cout << "Idea [" << i << "] from Cat[1]: " << ((Cat *)animals[1])->getBrain()->getIdea(i) << std::endl;
@@ -39,8 +36,23 @@ int main()
 		std::cout << "Idea [" << i << "] from Dog[4]: " << ((Dog *)animals[9])->getBrain()->getIdea(i) << std::endl;
 	}
 	std::cout << std::endl;
-	for (int i = 0; i < 10; i++)
-	{
+	for (int i = 0; i < 10; i++) {
 		delete animals[i];
 	}
+
+	std::cout << std::endl;
+	std::cout << "Test with deep copy" << std::endl << std::endl;
+	Dog basic;
+	{
+		std::cout << std::endl;
+		Dog tmp = basic;
+		std::cout << std::endl;
+	}
+	std::cout << std::endl;
+	std::cout << "Idea [0] from Dog: " << basic.getBrain()->getIdea(0) << std::endl;
+	std::cout << std::endl;
+	return 0;
+	// Removing the comment below will cause a compilation error
+//	AAnimal errorTest;
+//	errorTest.makeSound();		
 }
