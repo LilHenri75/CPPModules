@@ -1,45 +1,31 @@
 #include "Serializer.hpp"
+#include <iostream>
 
-int main()
-{
-	Data ptr2;
-	ptr2.name = "Michaela Mustermann";
-	ptr2.sexe = "W";
-	ptr2.next = NULL;
+int main() {
+    // Create a non-empty Data structure
+    Data data;
+    data.date = "2023-10-05";
+    data.jour = "Thursday";
+    data.next = nullptr;
 
-	Data ptr;
-	ptr.name = "Max Mustermann";
-	ptr.sexe = "M";
-	ptr.next = &ptr2;
+    // Serialize the Data pointer
+    uintptr_t raw = Serializer::serialize(&data);
+	
+    // Deserialize the uintptr_t back to a Data pointer
+    Data *deserializedData = Serializer::deserialize(raw);
 
+    // Ensure the deserialized pointer compares equal to the original pointer
+    if (deserializedData == &data) {
+        std::cout << "Serialization and deserialization successful!" << std::endl;
+        std::cout << "Original Data address: " << &data << std::endl;
+        std::cout << "Deserialized Data address: " << deserializedData << std::endl;
+        std::cout << "Date: " << deserializedData->date << std::endl;
+        std::cout << "Jour: " << deserializedData->jour << std::endl;
+    } else {
+        std::cout << "Serialization and deserialization failed!" << std::endl;
+        std::cout << "Original Data address: " << &data << std::endl;
+        std::cout << "Deserialized Data address: " << deserializedData << std::endl;
+    }
 
-	std::cout << "Here is the original structs:" <<
-				"\n\taddress: " << &ptr <<
-				"\n\tname: " << ptr.name <<
-				"\n\tage: " << ptr.sexe <<
-				"\n\taddress next: " << ptr.next <<
-	std::endl;
-	std::cout << "\taddress ptr2: " << &ptr2 <<
-				"\n\tname: " << ptr2.name <<
-				"\n\tage: " << ptr2.sexe <<
-				"\n\taddress next: " << ptr2.next <<
-	std::endl << std::endl;
-
-	Serializer a;
-
-	Data *reserialized_struct = a.deserialize(a.serialize(&ptr));
-
-	std::cout << "Here is the reserialized structs:" <<
-				"\n\taddress: " << reserialized_struct <<
-				"\n\tname: " << reserialized_struct->name <<
-				"\n\tage: " << reserialized_struct->sexe <<
-				"\n\taddress next: " << reserialized_struct->next <<
-	std::endl;
-	std::cout << "\taddress ptr2: " << &ptr2 <<
-				"\n\tname: " << ptr2.name <<
-				"\n\tage: " << ptr2.sexe <<
-				"\n\taddress next: " << ptr2.next <<
-	std::endl << std::endl;
-
-	return (0);
+    return 0;
 }

@@ -49,7 +49,7 @@ void Form::beSigned(const Bureaucrat &bureaucrat) {
 // ostream operator
 
 std::ostream &operator<<(std::ostream &out, const Form &form) {
-    out << "Form Details: " << std::endl;
+    out << "FORM DETAILS" << std::endl;
     out << "Name: " << form.getName() << std::endl;
     out << "Signed: " << (form.getSigned() ? "Yes" : "No") << std::endl;
     out << "Grade to Sign: " << form.getGradeToSign() << std::endl;
@@ -57,4 +57,8 @@ std::ostream &operator<<(std::ostream &out, const Form &form) {
     return out;
 }
 
+// Exceptions
+const char* Form::GradeTooHighException::what() const throw() { return "Grade is too high"; }
+
+const char* Form::GradeTooLowException::what() const throw() { return "Grade is too low"; }
 

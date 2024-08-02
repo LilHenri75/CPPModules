@@ -1,5 +1,5 @@
-NAME = ex02
-SRCS = main.cpp Bureaucrat.cpp AForm.cpp ShrubberyCreationForm.cpp RobotomyRequestForm.cpp PresidentialPardonForm.cpp
+NAME = Base
+SRCS = main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./*.hpp
@@ -18,7 +18,7 @@ clean:
 	$(RM) $(OBJS)
 
 fclean: clean
-	$(RM) $(NAME) *_shrubbery
+	$(RM) $(NAME)
 
 re: fclean all
 

@@ -27,13 +27,12 @@ ShrubberyCreationForm &ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void ShrubberyCreationForm::execute(const Bureaucrat &executor) const {
 	if (this->getSigned() == false)
 		throw AForm::FormNotSignedException();
-	else if ( executor.getGrade() > this->getGradeToExecute() ) {
+	else if (executor.getGrade() > this->getGradeToExecute()) {
 		throw AForm::GradeTooLowException();
 	}
 	std::cout << "Shrubbery Creation Form is being executed" << std::endl;
 	std::string filename = this->getName() + "_shrubbery";
 	std::ofstream file(filename.c_str());
-		// ASCII art : tree with leaves
 	file << "     ^    \n";
 	file << "    ^^^   \n";
 	file << "   ^^^^^  \n";
