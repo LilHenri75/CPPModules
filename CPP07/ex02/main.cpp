@@ -1,4 +1,4 @@
-/*#include <iostream>
+#include <iostream>
 #include "Array.hpp"
 
 void test_default_constructor() {
@@ -66,7 +66,7 @@ void test_subscript_operator() {
 void test_out_of_bounds_access() {
     try {
         Array<int> arr(5);
-        arr[5] = 10; // This should throw an exception
+        arr[5] = 10;
         std::cout << "Out of Bounds Access: Failed" << std::endl;
     } catch (const std::exception &) {
         std::cout << "Out of Bounds Access: Passed" << std::endl;
@@ -82,9 +82,10 @@ int main() {
     test_out_of_bounds_access();
     return 0;
 }
-*/
+/*
 #include <iostream>
 #include "Array.hpp"
+#include<cstdlib>
 
 #define MAX_VAL 750
 int main(int, char**)
@@ -136,3 +137,4 @@ int main(int, char**)
     delete [] mirror;//
     return 0;
 }
+*/

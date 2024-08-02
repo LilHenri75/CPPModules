@@ -1,8 +1,7 @@
 #pragma once
 
-#include <stdexcept> // For std::exception
-
 template <typename T>
+
 class Array {
     private:
         T *_array;
@@ -30,4 +29,4 @@ class Array {
         unsigned int size() const;
 };
 
-#include "Array.tpp" // Include the implementation file
+#include "Array.tpp"
