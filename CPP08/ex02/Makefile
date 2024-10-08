@@ -1,5 +1,5 @@
-NAME = span
-SRCS = srcs/main.cpp srcs/Span.cpp
+NAME = mutantstack
+SRCS = srcs/main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.srcs/*.hpp

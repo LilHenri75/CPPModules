@@ -1,8 +1,8 @@
 NAME = easyfind
-SRCS = main.cpp
+SRCS = srcs/main.cpp
 OBJS = $(SRCS:.cpp=.o)
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I./*.hpp
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -I.srcs/*.hpp
 
 .PHONY: all clean fclean re valgrind
 
@@ -21,6 +21,3 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
-
-valgrind: $(NAME)
-	valgrind --leak-check=full -s ./$(NAME)
